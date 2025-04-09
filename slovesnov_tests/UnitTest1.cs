@@ -30,10 +30,10 @@ public class Tests
         driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru/");
         //ввести логин
         var login = driver.FindElement(By.Id("Username"));
-        login.SendKeys("slovesnov.v@skbkontur.ru");
+        login.SendKeys("");
         // ввести пароль
         var password = driver.FindElement(By.Id("Password"));
-        password.SendKeys("dF3qn!ZZgEBgVDu");
+        password.SendKeys("");
         //нажать кнопку "Войти"
         var enter=driver.FindElement(By.Name("button"));
         enter.Click();
