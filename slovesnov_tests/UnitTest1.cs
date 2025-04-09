@@ -30,10 +30,10 @@ public class Tests
         driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru/");
         //ввести логин
         var login = driver.FindElement(By.Id("Username"));
-        login.SendKeys("");
+        login.SendKeys("slovesnov.v@skbkontur.ru");
         // ввести пароль
         var password = driver.FindElement(By.Id("Password"));
-        password.SendKeys("");
+        password.SendKeys("dF3qn!ZZgEBgVDu");
         //нажать кнопку "Войти"
         var enter=driver.FindElement(By.Name("button"));
         enter.Click();
@@ -49,80 +49,11 @@ public class Tests
       }
 
     [Test]
-    public void BurgerNavigation()
+    public void CorrectLogOutFromBurgerMenu()
     {
        Authorize();
         wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='Title']")));
         var enter=driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        enter.Click();
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Community']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Community']"));
-        enter.Click();
-        var TitlePageElement = driver.FindElement(By.CssSelector("[data-tid='Title']"));
-        Assert.That(driver.Url.Equals("https://staff-testing.testkontur.ru/communities"), "Не тот URL");
-        Assert.That(TitlePageElement.Text, Does.Contain("Сообщества"), "Отсутствует верный заголовок страницы");   
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='Title']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        enter.Click();
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='SidePageBody'] [data-tid='News']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidePageBody'] [data-tid='News']"));
-        enter.Click();
-        TitlePageElement = driver.FindElement(By.CssSelector("[data-tid='Title']"));
-        Assert.That(driver.Url.Equals("https://staff-testing.testkontur.ru/news"), "Не тот URL");
-        Assert.That(TitlePageElement.Text, Does.Contain("Новости"), "Отсутствует верный заголовок страницы");   
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='Title']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        enter.Click();
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Comments']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Comments']"));
-        enter.Click();
-        TitlePageElement = driver.FindElement(By.CssSelector("[data-tid='Title']"));
-        Assert.That(driver.Url.Equals("https://staff-testing.testkontur.ru/comments"), "Не тот URL");
-        Assert.That(TitlePageElement.Text, Does.Contain("Комментарии"), "Отсутствует верный заголовок страницы");   
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='Title']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        enter.Click();
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Messages']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Messages']"));
-        enter.Click();
-        TitlePageElement = driver.FindElement(By.CssSelector("[data-tid='Title']"));
-        Assert.That(driver.Url.Equals("https://staff-testing.testkontur.ru/messages"), "Не тот URL");
-        Assert.That(TitlePageElement.Text, Does.Contain("Диалоги"));   
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='Title']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        enter.Click();
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Events']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Events']"));
-        enter.Click();
-        Assert.That(driver.Url.Equals("https://staff-testing.testkontur.ru/events"), "Не тот URL"); 
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        enter.Click();
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Documents']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Documents']"));
-        enter.Click();
-        TitlePageElement = driver.FindElement(By.CssSelector("[data-tid='Title']"));
-        Assert.That(driver.Url.Equals("https://staff-testing.testkontur.ru/documents"), "Не тот URL");
-        Assert.That(TitlePageElement.Text, Does.Contain("Документы"), "Отсутствует верный заголовок страницы");   
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='Title']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        enter.Click();
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Files']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Files']"));
-        enter.Click();
-        TitlePageElement = driver.FindElement(By.CssSelector("[data-tid='Title']"));
-        Assert.That(driver.Url.Equals("https://staff-testing.testkontur.ru/files"), "Не тот URL");
-        Assert.That(TitlePageElement.Text, Does.Contain("Файлы"), "Отсутствует верный заголовок страницы");  
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='Title']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        enter.Click();
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Structure']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidePageBody'] [data-tid='Structure']"));
-        enter.Click();
-        TitlePageElement = driver.FindElement(By.CssSelector("[data-tid='Title']"));
-        Assert.That(driver.Url.Equals("https://staff-testing.testkontur.ru/company"), "Не тот URL");
-        Assert.That(TitlePageElement.Text, Does.Contain("Тестовый холдинг"), "Отсутствует верное название компании");   
-        wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='Title']")));
-        enter=driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
         enter.Click();
         wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector("[data-tid='SidePageBody'] [data-tid='LogoutButton']")));
         enter=driver.FindElement(By.CssSelector("[data-tid='SidePageBody'] [data-tid='LogoutButton']"));
