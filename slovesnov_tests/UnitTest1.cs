@@ -42,7 +42,7 @@ public class Tests
     }
 
     [Test]
-  public void AuthorizationTest()
+  public void CorrectStartPage()
   {
     Authorize();
     var NTitle = driver.FindElement(By.CssSelector("[data-tid='Title']"));
