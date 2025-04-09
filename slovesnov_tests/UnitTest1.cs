@@ -45,7 +45,8 @@ public class Tests
   public void AuthorizationTest()
   {
     Authorize();
-    Assert.That(driver.Url.Equals("https://staff-testing.testkontur.ru/news"), "Некорректный url");
+    var NTitle = driver.FindElement(By.CssSelector("[data-tid='Title']"));
+    Assert.That(NTitle.Text, Does.Contain("Новости"), "Некорректная стартовая страница");
       }
 
     [Test]
